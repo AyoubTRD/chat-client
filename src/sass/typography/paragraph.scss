@@ -1,0 +1,11 @@
+.choice {
+  font-family: "Lobster", "Nunito", sans-serif;
+  font-size: 1.8rem;
+  &__link {
+    color: $dark-green;
+    transition: 0.2s;
+    &:hover {
+      color: $light-green;
+    }
+  }
+}

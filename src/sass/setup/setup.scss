@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  color: $black;
+}
+
+.my-container {
+  padding: 0.5rem 1.5rem;
+}

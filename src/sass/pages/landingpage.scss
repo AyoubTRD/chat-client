@@ -1,0 +1,39 @@
+.landing-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  background: url("./assets/bg.svg");
+  background-position-y: top;
+  background-position-x: right;
+  &__illustration {
+    width: 100%;
+    max-width: 80vh;
+    display: block;
+    margin: 0 auto;
+  }
+  &__heading {
+    color: $black;
+    margin-top: 2.5rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+}
+
+.hero {
+  position: absolute;
+  width: 90%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 800px) {
+  .landing-page {
+    background-position-y: -10rem;
+  }
+  .hero {
+    top: 65%;
+    padding-bottom: 2rem;
+  }
+}

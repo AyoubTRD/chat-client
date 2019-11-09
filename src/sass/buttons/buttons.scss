@@ -1,0 +1,48 @@
+.btn {
+  padding: 1rem 3rem;
+  border: 2px solid;
+  font-size: 1.7rem;
+  font-weight: bold;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-right: 1rem;
+  &-white {
+    border-color: 2px solid $white;
+    color: $white;
+    &:hover {
+      color: $black;
+      background-color: $white;
+      border-color: $black;
+    }
+  }
+  &-grey {
+    border-color: 2px solid $grey;
+    color: $grey;
+    &:hover {
+      color: $black;
+      background-color: $grey;
+      border-color: $black;
+    }
+  }
+  &-black {
+    border-color: $black;
+    color: $black;
+    &:hover {
+      color: $white;
+      background-color: $black;
+      border-color: $white;
+    }
+  }
+  &-green {
+    background: linear-gradient(to right, $light-green, $dark-green);
+    border: none;
+    color: $white;
+  }
+  &-block {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+  }
+}

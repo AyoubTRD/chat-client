@@ -1,0 +1,14 @@
+.big {
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: $black;
+  margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .big {
+    font-size: 4.5rem;
+  }
+}

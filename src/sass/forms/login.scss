@@ -1,0 +1,83 @@
+.form-page {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to right top, $dark-green, $light-green);
+  position: relative;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sign {
+  width: 40rem;
+  max-width: 100%;
+  background-color: $white;
+  box-shadow: 0 0 1rem 0.5rem rgba($black, 0.6);
+  min-height: 10rem;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    color: $black;
+  }
+  .circle-1 {
+    padding: 2.5rem;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    background-color: $light-green;
+    opacity: 0.4;
+  }
+  .circle-2 {
+    position: absolute;
+    top: 60%;
+    right: -15%;
+    padding: 5rem;
+    background: $light-green;
+    opacity: 0.4;
+  }
+  .circle-3 {
+    position: absolute;
+    top: 0%;
+    right: 1%;
+    padding: 5rem;
+    background: $light-green;
+    opacity: 0.4;
+  }
+  hr {
+    margin: 2rem;
+    color: $light-green;
+  }
+}
+
+.field {
+  margin-bottom: 2rem;
+  &__label {
+    font-size: 1.8rem;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  &__input {
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 1rem 0.3rem $grey;
+    padding: 1.5rem;
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  z-index: 0;
+}
