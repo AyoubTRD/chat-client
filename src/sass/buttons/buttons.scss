@@ -36,9 +36,18 @@
     }
   }
   &-green {
-    background: linear-gradient(to right, $light-green, $dark-green);
+    background: linear-gradient(
+      to right,
+      $light-green,
+      $dark-green,
+      $light-green
+    );
+    background-size: 200%;
     border: none;
     color: $white;
+    &:hover {
+      background-position: right;
+    }
   }
   &-block {
     display: block;

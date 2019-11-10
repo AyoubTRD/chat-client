@@ -81,9 +81,12 @@ body {
       background-color: #1a2026;
       border-color: #eef2f3; }
   .btn-green {
-    background: linear-gradient(to right, #38ef7d, #11998e);
+    background: linear-gradient(to right, #38ef7d, #11998e, #38ef7d);
+    background-size: 200%;
     border: none;
     color: #eef2f3; }
+    .btn-green:hover {
+      background-position: right; }
   .btn-block {
     display: block;
     width: 100%;
@@ -97,6 +100,17 @@ body {
     transition: 0.2s; }
     .choice__link:hover {
       color: #38ef7d; }
+
+.requirements {
+  font-size: 1.6rem;
+  margin: 0.5rem 1rem; }
+
+.error {
+  color: #ee3d48;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 1rem; }
 
 .big {
   font-size: 5.5rem;
