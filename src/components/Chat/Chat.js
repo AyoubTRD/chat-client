@@ -27,16 +27,18 @@ const Chat = ({ users, user }) => {
   return (
     <div className="chat-page">
       <div className="row">
-        <div className="col-md-2">
+        <div className="col-md-2 col-sm-6">
           <Profile user={user.user || {}} />
         </div>
         <div className="chat">
-          <div className="col-md-4">
-            {usersArr.map(user => (
-              <User user={user} key={user._id} />
-            ))}
+          <div className="col-md-4 col-sm-6">
+            <div className="users">
+              {usersArr.map(user => (
+                <User user={user} key={user._id} />
+              ))}
+            </div>
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-6 col-sm-12"></div>
         </div>
       </div>
     </div>

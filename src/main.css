@@ -11,10 +11,26 @@ html {
 
 body {
   font-size: 1.6rem;
-  color: #1a2026; }
+  color: #1a2026;
+  overflow-x: hidden;
+  width: 100vw; }
 
 .my-container {
   padding: 0.5rem 1.5rem; }
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#4d9c41), to(#19911d), color-stop(0.6, #54de5d)); }
 
 .landing-page {
   height: 100vh;
@@ -226,9 +242,17 @@ body {
     .user__status-offline {
       color: #f85c50; }
 
+.users {
+  height: 100vh;
+  overflow-y: scroll; }
+
+@media only screen and (max-width: 768) {
+  .users {
+    height: 70vh; } }
+
 .chat-page {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f2f8fd; }
 
 .profile {
@@ -246,4 +270,10 @@ body {
   .profile__username {
     font-weight: 400;
     font-size: 2.5rem;
-    margin-bottom: 3rem; }
+    margin-bottom: 1rem; }
+  .profile__email {
+    font-size: 1.4rem; }
+
+@media only screen and (max-width: 768px) {
+  .profile {
+    height: 40vh; } }

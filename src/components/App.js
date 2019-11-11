@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import ReactNotification from "react-notifications-component"
+import ReactNotification from "react-notifications-component";
 
 import history from "../history";
 import { Router, Switch, Route } from "react-router-dom";
 import { signIn } from "../actions/user";
 import { connect } from "react-redux";
 import connectToSocket from "../socket";
-
 
 import LandingPage from "./LandingPage";
 import SignIn from "./User/SignIn";
@@ -20,7 +19,9 @@ const App = ({ signIn }) => {
     if (user) {
       signIn(user.user, user.token);
       connectToSocket(user.token);
+      history.push("/chat");
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -11,7 +11,6 @@
     border: 1px solid $grey;
     transform: translateY(3px);
     margin-right: 1rem;
-    // box-shadow: 3px 3px 1rem 2px rgba($black, 0.2);
   }
   &__details {
     padding-left: 2rem;
@@ -30,5 +29,15 @@
     &-offline {
       color: $red;
     }
+  }
+}
+.users {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 768) {
+  .users {
+    height: 70vh;
   }
 }
