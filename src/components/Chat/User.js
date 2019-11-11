@@ -1,8 +1,23 @@
 import React from "react";
 
-const User = ({ user: { avatar, username, online } }) => {
+import { changeChatroom } from "../../actions/user";
+import { connect } from "react-redux";
+
+const User = ({
+  user: { avatar, username, online, _id },
+  chatroomUser,
+  changeChatroom
+}) => {
+  const handleClick = () => {
+    console.log("clicked");
+    changeChatroom({ username, avatar, online, _id });
+  };
+
   return (
-    <div className="user">
+    <div
+      className={`user user-${_id === chatroomUser._id ? "active" : ""}`}
+      onClick={handleClick}
+    >
       <div className="row">
         <div className="col-xs-2">
           <img
@@ -26,4 +41,7 @@ const User = ({ user: { avatar, username, online } }) => {
   );
 };
 
-export default User;
+export default connect(
+  ({ chatroomUser }) => ({ chatroomUser }),
+  { changeChatroom }
+)(User);

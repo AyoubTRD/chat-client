@@ -4,9 +4,11 @@ import {
   ONLINE_USER,
   OFFLINE_USER,
   GET_MESSAGES,
+  ADD_MESSAGE,
   ADD_USERS,
   CHANGE_CHATROOM
 } from "../actions/types";
+import { compareAsc } from "date-fns";
 
 const arrToObj = arr => {
   const obj = {};
@@ -14,6 +16,23 @@ const arrToObj = arr => {
     obj[el._id] = el;
   });
   return obj;
+};
+
+const formatMessages = msgs => {
+  let messages = [];
+  msgs.received.forEach(msg => {
+    msg.createdAt = new Date(msg.createdAt);
+
+    messages.push({ ...msg, own: false });
+  });
+  msgs.sent.forEach(msg => {
+    msg.createdAt = new Date(msg.createdAt);
+    messages.push({ ...msg, own: true });
+  });
+
+  messages = messages.sort((a, b) => compareAsc(a.createdAt, b.createdAt));
+
+  return messages;
 };
 
 const userReducer = (state = {}, { type, payload }) => {
@@ -41,7 +60,9 @@ const usersReducer = (state = {}, { type, payload }) => {
 const messagesReducer = (state = [], { type, payload }) => {
   switch (type) {
     case GET_MESSAGES:
-      return payload;
+      return formatMessages(payload);
+    case ADD_MESSAGE:
+      return [...state, payload];
     default:
       return state;
   }
@@ -51,6 +72,16 @@ const chatroomReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case CHANGE_CHATROOM:
       return payload;
+    case OFFLINE_USER:
+      if (payload._id === state._id) {
+        return payload;
+      }
+      return state;
+    case ONLINE_USER:
+      if (payload._id === state._id) {
+        return payload;
+      }
+      return state;
     default:
       return state;
   }

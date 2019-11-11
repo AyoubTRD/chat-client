@@ -1,4 +1,12 @@
-import { SIGN_IN, ADD_USERS, ONLINE_USER, OFFLINE_USER } from "./types";
+import {
+  SIGN_IN,
+  ADD_USERS,
+  ONLINE_USER,
+  OFFLINE_USER,
+  CHANGE_CHATROOM
+} from "./types";
+
+import { socket } from "../socket";
 
 export const signIn = (user, token) => {
   return {
@@ -24,6 +32,14 @@ export const onlineUser = user => {
 export const offlineUser = user => {
   return {
     type: OFFLINE_USER,
+    payload: user
+  };
+};
+
+export const changeChatroom = user => {
+  socket.emit("request messages", user._id);
+  return {
+    type: CHANGE_CHATROOM,
     payload: user
   };
 };

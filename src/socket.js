@@ -1,7 +1,12 @@
 import io from "socket.io-client";
 import store from "./store";
-import { onlineUser, offlineUser, addUsers } from "./actions/user";
-import { getMessages } from "./actions/message";
+import {
+  onlineUser,
+  offlineUser,
+  addUsers,
+  changeChatroom
+} from "./actions/user";
+import { getMessages, addMessage } from "./actions/message";
 
 import { store as notif } from "react-notifications-component";
 const { addNotification } = notif;
@@ -10,7 +15,7 @@ export let socket;
 
 const connectToSocket = token => {
   const { dispatch } = store;
-  socket = io("https://trd-chat.herokuapp.com/", {
+  socket = io("http://localhost:5000/", {
     query: `token=${token}`
   });
   socket.on("ready", () => {
@@ -20,6 +25,7 @@ const connectToSocket = token => {
 
     socket.on("users", users => {
       dispatch(addUsers(users));
+      dispatch(changeChatroom(users[0]));
     });
 
     socket.on("online user", user => {
@@ -51,7 +57,33 @@ const connectToSocket = token => {
           duration: 4500
         }
       });
+
       dispatch(offlineUser(user));
+    });
+    socket.on("received message", msg => {
+      console.log("received a message", msg);
+      const { users, chatroomUser } = store.getState();
+      let user;
+      for (let i in users) {
+        if (i === msg.from) {
+          user = users[i];
+        }
+      }
+      addNotification({
+        title: `${user.username} sent you a message!`,
+        message: msg.text.substr(0, 20),
+        type: "success",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeInRight"],
+        animationOut: ["animated", "fadeOutDown"],
+        dismiss: {
+          duration: 4500
+        }
+      });
+      if (chatroomUser._id === user._id) {
+        dispatch(addMessage({ ...msg, own: false }));
+      }
     });
   });
 };

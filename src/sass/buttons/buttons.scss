@@ -93,4 +93,24 @@
       background-color: rgba($dark-green, 0.03);
     }
   }
+  &-send {
+    background: linear-gradient(
+      to right,
+      $light-green,
+      $dark-green,
+      $light-green
+    );
+    background-size: 200%;
+    border: none;
+    color: $white;
+    transition: 0.3s;
+    cursor: pointer;
+    display: inline-block;
+    width: 25%;
+    padding: 2rem 0;
+    font-size: 1.6rem;
+    min-width: 4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }

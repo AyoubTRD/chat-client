@@ -35,14 +35,32 @@
       color: $red;
     }
   }
+  &-active {
+    background-color: rgba($dark-green, 0.1);
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(100%, -50%);
+      background-color: rgba($dark-green, 0.1);
+      width: 2rem;
+      height: 3rem;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+  }
 }
 .users {
-  height: 100vh;
-  overflow-y: scroll;
+  max-height: 100vh;
+  overflow-y: hidden;
+  &:hover {
+    overflow-y: scroll;
+  }
 }
 
 @media only screen and (max-width: 768) {
   .users {
-    height: 70vh;
+    max-height: 70vh;
   }
 }
