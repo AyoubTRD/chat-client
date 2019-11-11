@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const userApi = axios.create({
-  baseURL: "http://localhost:5000/users"
+  baseURL: "https://trd-chat.herokuapp.com/users"
 });
 
 export default userApi;

@@ -6,10 +6,15 @@ import { signIn } from "../../actions/user.js";
 import { connect } from "react-redux";
 import connectToSocket from "../../socket";
 
-const SignIn = ({ signIn }) => {
+import history from "../../history";
+
+const SignIn = ({ signIn, user }) => {
   useEffect(() => {
+    if (user.token) {
+      history.push("/chat");
+    }
     document.title = "Chat App - Login";
-  }, []);
+  }, [user.token]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +37,7 @@ const SignIn = ({ signIn }) => {
       });
       signIn(res.data.user, res.data.token);
       connectToSocket(res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data));
     } catch (e) {
       setError("Wrong password or email");
     }
@@ -100,6 +106,6 @@ const SignIn = ({ signIn }) => {
 };
 
 export default connect(
-  null,
+  ({ user }) => ({ user }),
   { signIn }
 )(SignIn);

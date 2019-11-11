@@ -6,12 +6,17 @@ import userApi from "../../api/userApi";
 import { signIn } from "../../actions/user.js";
 import { connect } from "react-redux";
 
+import history from "../../history";
+
 import connectToSocket from "../../socket";
 
-const SignUp = ({ signIn }) => {
+const SignUp = ({ signIn, user }) => {
   useEffect(() => {
+    if (user.token) {
+      history.push("/chat");
+    }
     document.title = "Chat App - Sign Up";
-  }, []);
+  }, [user.token]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +47,7 @@ const SignUp = ({ signIn }) => {
 
       signIn(res.data.user, res.data.token);
       connectToSocket(res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data));
     } catch (e) {
       setError("The email or the username you provided is already taken");
     }
@@ -127,6 +133,6 @@ const SignUp = ({ signIn }) => {
   );
 };
 export default connect(
-  null,
+  ({ user }) => ({ user }),
   { signIn }
 )(SignUp);

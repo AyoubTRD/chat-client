@@ -1,0 +1,20 @@
+.profile {
+  padding: 1rem;
+  height: 100vh;
+  background-color: #d7e1e9;
+  &__info {
+    text-align: center;
+    padding-top: 2rem;
+  }
+  &__avatar {
+    border-radius: 50%;
+    border: 2px solid $white;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  &__username {
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
