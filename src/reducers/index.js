@@ -25,12 +25,16 @@ const formatMessages = msgs => {
 
     messages.push({ ...msg, own: false });
   });
-  msgs.sent.forEach(msg => {
-    msg.createdAt = new Date(msg.createdAt);
-    messages.push({ ...msg, own: true });
-  });
+  try {
+    msgs.sent.forEach(msg => {
+      msg.createdAt = new Date(msg.createdAt);
+      messages.push({ ...msg, own: true });
+    });
 
-  messages = messages.sort((a, b) => compareAsc(a.createdAt, b.createdAt));
+    messages = messages.sort((a, b) => compareAsc(a.createdAt, b.createdAt));
+  } catch (e) {
+    console.log(e);
+  }
 
   return messages;
 };
