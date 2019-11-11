@@ -10,7 +10,7 @@ export let socket;
 
 const connectToSocket = token => {
   const { dispatch } = store;
-  socket = io("http://localhost:5000/", {
+  socket = io("https://trd-chat.herokuapp.com/", {
     query: `token=${token}`
   });
   socket.on("ready", () => {
