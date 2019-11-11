@@ -4,7 +4,8 @@ import {
   ONLINE_USER,
   OFFLINE_USER,
   GET_MESSAGES,
-  ADD_USERS
+  ADD_USERS,
+  CHANGE_CHATROOM
 } from "../actions/types";
 
 const arrToObj = arr => {
@@ -46,8 +47,18 @@ const messagesReducer = (state = [], { type, payload }) => {
   }
 };
 
+const chatroomReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case CHANGE_CHATROOM:
+      return payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   user: userReducer,
   users: usersReducer,
-  messages: messagesReducer
+  messages: messagesReducer,
+  chatroomUser: chatroomReducer
 });

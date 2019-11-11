@@ -30,7 +30,7 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #fff;
-  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#4d9c41), to(#19911d), color-stop(0.6, #54de5d)); }
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#38ef7d), to(#11998e), color-stop(0.6, #54de5d)); }
 
 .landing-page {
   height: 100vh;
@@ -110,6 +110,38 @@ body {
     display: block;
     width: 100%;
     border-radius: 20px; }
+  .btn-action {
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    padding: 1.5rem 2rem;
+    border: none;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+    display: block; }
+    .btn-action::after {
+      content: "";
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      transition: 0.2s ease-in-out;
+      background-color: #11998e; }
+    .btn-action:hover::after {
+      bottom: 0; }
+    .btn-action-active::after {
+      bottom: 0; }
+    .btn-action-active {
+      color: #11998e;
+      background-color: rgba(17, 153, 142, 0.03); }
+    .btn-action:hover {
+      color: #11998e;
+      background-color: rgba(17, 153, 142, 0.03); }
 
 .choice {
   font-family: "Lobster", "Nunito", sans-serif;
@@ -220,7 +252,11 @@ body {
   padding: 5px 1rem;
   margin: 1rem 3rem;
   border-radius: 2px;
-  display: block; }
+  display: block;
+  transition: 0.2s;
+  cursor: pointer; }
+  .user:hover {
+    background-color: rgba(17, 153, 142, 0.1); }
   .user__avatar {
     max-width: 100%;
     height: 5rem;
@@ -256,24 +292,25 @@ body {
   background-color: #f2f8fd; }
 
 .profile {
-  padding: 1rem;
-  height: 100vh;
+  padding: 1rem 0;
   background-color: #d7e1e9; }
   .profile__info {
     text-align: center;
-    padding-top: 2rem; }
+    padding: 2rem 1rem;
+    margin-bottom: 2rem; }
   .profile__avatar {
     border-radius: 50%;
     border: 2px solid #eef2f3;
     display: inline-block;
     margin-bottom: 1rem; }
   .profile__username {
-    font-weight: 400;
     font-size: 2.5rem;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    font-family: "Lobster"; }
   .profile__email {
-    font-size: 1.4rem; }
+    font-size: 1.6rem;
+    font-weight: 300; }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .profile {
-    height: 40vh; } }
+    height: 100vh; } }

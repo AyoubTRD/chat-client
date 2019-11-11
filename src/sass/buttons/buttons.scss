@@ -54,4 +54,43 @@
     width: 100%;
     border-radius: 20px;
   }
+  &-action {
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    padding: 1.5rem 2rem;
+    border: none;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+    display: block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      transition: 0.2s ease-in-out;
+      background-color: $dark-green;
+    }
+    &:hover::after {
+      bottom: 0;
+    }
+    &-active::after {
+      bottom: 0;
+    }
+    &-active {
+      color: $dark-green;
+      background-color: rgba($dark-green, 0.03);
+    }
+    &:hover {
+      color: $dark-green;
+      background-color: rgba($dark-green, 0.03);
+    }
+  }
 }

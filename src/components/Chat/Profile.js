@@ -11,7 +11,8 @@ const Profile = ({ user: { avatar, username, email } }) => {
       </div>
 
       <div className="profile__actions">
-        <button className="btn-action">Sign out</button>
+        <button className="btn-action btn-action">Sign out</button>
+        <button className="btn-action btn-action-active">Chat</button>
       </div>
     </div>
   );

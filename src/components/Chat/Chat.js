@@ -5,6 +5,7 @@ import history from "../../history";
 
 import User from "./User";
 import Profile from "./Profile";
+import ChatRoom from "./ChatRoom";
 
 const fromObjToArr = obj => {
   const arr = [];
@@ -38,7 +39,9 @@ const Chat = ({ users, user }) => {
               ))}
             </div>
           </div>
-          <div className="col-md-6 col-sm-12"></div>
+          <div className="col-md-6 col-sm-12">
+            <ChatRoom />
+          </div>
         </div>
       </div>
     </div>
