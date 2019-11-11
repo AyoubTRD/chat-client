@@ -15,7 +15,7 @@ export let socket;
 
 const connectToSocket = token => {
   const { dispatch } = store;
-  socket = io("http://localhost:5000/", {
+  socket = io("https://trd-chat.herokuapp.com/", {
     query: `token=${token}`
   });
   socket.on("ready", () => {
@@ -61,7 +61,6 @@ const connectToSocket = token => {
       dispatch(offlineUser(user));
     });
     socket.on("received message", msg => {
-      console.log("received a message", msg);
       const { users, chatroomUser } = store.getState();
       let user;
       for (let i in users) {
