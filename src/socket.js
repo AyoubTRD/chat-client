@@ -4,7 +4,8 @@ import {
   onlineUser,
   offlineUser,
   addUsers,
-  changeChatroom
+  changeChatroom,
+  signOut
 } from "./actions/user";
 import { getMessages, addMessage } from "./actions/message";
 
@@ -84,6 +85,9 @@ const connectToSocket = token => {
         dispatch(addMessage({ ...msg, own: false }));
       }
     });
+  });
+  socket.on("connection refused", () => {
+    dispatch(signOut());
   });
 };
 
