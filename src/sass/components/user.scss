@@ -6,6 +6,7 @@
   display: block;
   transition: 0.2s;
   cursor: pointer;
+  animation: fadeInDown 1s;
   &:hover {
     background-color: rgba($dark-green, 0.1);
   }
@@ -27,12 +28,13 @@
     font-size: 1.8rem;
   }
   &__status {
-    font-family: "Lobster";
+    font-weight: bold;
+    text-align: right;
     &-online {
       color: $dark-green;
     }
     &-offline {
-      color: $red;
+      color: $grey;
     }
   }
   &-active {

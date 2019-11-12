@@ -5,6 +5,7 @@
   padding: 1rem 2rem;
   margin: 2rem;
   width: auto;
+  animation: slideInRight 0.7s;
   &__text {
     font-size: 1.7rem;
   }
@@ -15,7 +16,7 @@
     margin-left: auto;
     background-color: $dark-green;
     color: $white;
-    &__date {
+    .message__date {
       color: rgba($white, 0.7);
     }
   }
@@ -23,6 +24,7 @@
 
 .messages {
   height: 80%;
+  overflow-x: hidden;
   overflow-y: scroll;
   padding: 3rem 0;
 }

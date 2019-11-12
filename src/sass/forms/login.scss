@@ -35,6 +35,9 @@
     left: 0%;
     background-color: $light-green;
     opacity: 0.4;
+    animation: slideInLeft 1s;
+    animation-fill-mode: both;
+    animation-delay: 3s;
   }
   .circle-2 {
     position: absolute;
@@ -43,6 +46,9 @@
     padding: 5rem;
     background: $light-green;
     opacity: 0.4;
+    animation: slideInRight 3s;
+    animation-delay: 1.5s;
+    animation-fill-mode: both;
   }
   .circle-3 {
     position: absolute;
@@ -51,20 +57,31 @@
     padding: 5rem;
     background: $light-green;
     opacity: 0.4;
+    animation: slideInRight 2s;
+    animation-fill-mode: both;
+    animation-delay: 1s;
   }
   hr {
     margin: 2rem;
     color: $light-green;
+    animation: slideInLeft 1s;
+  }
+  &__loading {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
   }
 }
 
 .field {
   margin-bottom: 2rem;
   &__label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 0.5rem;
+    padding-left: 1rem;
   }
   &__input {
     background-color: white;
@@ -74,6 +91,11 @@
     display: block;
     width: 100%;
     border-radius: 20px;
+    animation: fadeIn 1s;
+    &::placeholder {
+      color: $black;
+      opacity: 0.45;
+    }
   }
 }
 

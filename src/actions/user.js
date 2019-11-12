@@ -1,5 +1,6 @@
 import {
   SIGN_IN,
+  SIGN_OUT,
   ADD_USERS,
   ONLINE_USER,
   OFFLINE_USER,
@@ -41,5 +42,13 @@ export const changeChatroom = user => {
   return {
     type: CHANGE_CHATROOM,
     payload: user
+  };
+};
+
+export const signOut = () => {
+  localStorage.removeItem("user");
+  socket.disconnect();
+  return {
+    type: SIGN_OUT
   };
 };

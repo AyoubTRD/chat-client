@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import {
   SIGN_IN,
+  SIGN_OUT,
   ONLINE_USER,
   OFFLINE_USER,
   GET_MESSAGES,
@@ -43,6 +44,8 @@ const userReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case SIGN_IN:
       return payload;
+    case SIGN_OUT:
+      return {};
     default:
       return state;
   }
@@ -56,6 +59,8 @@ const usersReducer = (state = {}, { type, payload }) => {
       return { ...state, [payload._id]: payload };
     case OFFLINE_USER:
       return { ...state, [payload._id]: payload };
+    case SIGN_OUT:
+      return {};
     default:
       return state;
   }
@@ -67,6 +72,8 @@ const messagesReducer = (state = [], { type, payload }) => {
       return formatMessages(payload);
     case ADD_MESSAGE:
       return [...state, payload];
+    case SIGN_OUT:
+      return [];
     default:
       return state;
   }
@@ -81,6 +88,8 @@ const chatroomReducer = (state = {}, { type, payload }) => {
         return payload;
       }
       return state;
+    case SIGN_OUT:
+      return {};
     case ONLINE_USER:
       if (payload._id === state._id) {
         return payload;

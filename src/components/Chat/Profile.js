@@ -1,6 +1,13 @@
 import React from "react";
 
-const Profile = ({ user: { avatar, username, email } }) => {
+import { signOut } from "../../actions/user";
+import { connect } from "react-redux";
+
+const Profile = ({ user: { avatar, username, email }, signOut }) => {
+  const handleClick = () => {
+    signOut();
+  };
+
   return (
     <div className="profile">
       <div className="profile__info">
@@ -11,11 +18,16 @@ const Profile = ({ user: { avatar, username, email } }) => {
       </div>
 
       <div className="profile__actions">
-        <button className="btn-action btn-action">Sign out</button>
+        <button className="btn-action btn-action" onClick={handleClick}>
+          Sign out
+        </button>
         <button className="btn-action btn-action-active">Chat</button>
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default connect(
+  null,
+  { signOut }
+)(Profile);

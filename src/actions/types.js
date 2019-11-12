@@ -5,3 +5,4 @@ export const OFFLINE_USER = "OFFLINE_USER";
 export const ADD_USERS = "ADD_USERS";
 export const CHANGE_CHATROOM = "CHANGE_CHATROOM";
 export const ADD_MESSAGE = "ADD_MESSAGE";
+export const SIGN_OUT = "SIGN_OUT";

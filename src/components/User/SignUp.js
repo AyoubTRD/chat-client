@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import history from "../../history";
 
 import connectToSocket from "../../socket";
+import loader from "../../assets/loader.svg";
 
 const SignUp = ({ signIn, user }) => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const SignUp = ({ signIn, user }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
     if (e.target.id === "email") {
@@ -36,9 +38,12 @@ const SignUp = ({ signIn, user }) => {
   const handleSubmit = async e => {
     try {
       e.preventDefault();
+      setLoading(true);
+
       if (password.length < 6) {
         return setError("The password must be 6 characters long or more");
       }
+
       const res = await userApi.post("/", {
         username,
         email,
@@ -47,9 +52,12 @@ const SignUp = ({ signIn, user }) => {
 
       signIn(res.data.user, res.data.token);
       connectToSocket(res.data.token);
+      setLoading(false);
+
       localStorage.setItem("user", JSON.stringify(res.data));
     } catch (e) {
       setError("The email or the username you provided is already taken");
+      setLoading(false);
     }
   };
 
@@ -117,6 +125,10 @@ const SignUp = ({ signIn, user }) => {
             <button type="submit" className="btn btn-green btn-block">
               Sign Up
             </button>
+
+            {loading ? (
+              <img src={loader} alt="loading" className="sign__loading" />
+            ) : null}
 
             <hr />
 

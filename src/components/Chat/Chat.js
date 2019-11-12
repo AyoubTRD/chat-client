@@ -18,7 +18,7 @@ const fromObjToArr = obj => {
 const Chat = ({ users, user }) => {
   useEffect(() => {
     if (!user.token) {
-      history.push("/signup");
+      history.push("/");
     }
     document.title = "Start Chatting with your friends";
   }, [users, user]);

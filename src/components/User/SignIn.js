@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import connectToSocket from "../../socket";
 
 import history from "../../history";
+import loader from "../../assets/loader.svg";
 
 const SignIn = ({ signIn, user }) => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const SignIn = ({ signIn, user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = ({ target: { id, value } }) => {
     if (id === "email") {
@@ -31,15 +33,18 @@ const SignIn = ({ signIn, user }) => {
   const handleSubmit = async e => {
     try {
       e.preventDefault();
+      setLoading(true);
       const res = await userApi.post("/signin", {
         email,
         password
       });
       signIn(res.data.user, res.data.token);
       connectToSocket(res.data.token);
+      setLoading(false);
       localStorage.setItem("user", JSON.stringify(res.data));
     } catch (e) {
       setError("Wrong password or email");
+      setLoading(false);
     }
   };
 
@@ -89,6 +94,10 @@ const SignIn = ({ signIn, user }) => {
             <button type="submit" className="btn btn-green btn-block">
               Sign In
             </button>
+
+            {loading ? (
+              <img src={loader} alt="loading" className="sign__loading" />
+            ) : null}
 
             <hr />
 

@@ -33,25 +33,27 @@ const MessageSend = ({ addMessage, from, to }) => {
     }
   };
   return (
-    <form
-      className="chatroom-form"
-      autoComplete="off"
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      ref={form}
-    >
-      <input
-        type="text"
-        name="text"
-        id="text"
-        ref={input}
-        placeholder="Type a message..."
-        className="chatroom-form__input"
-      />
-      <button type="submit" className="btn-send">
-        send
-      </button>
-    </form>
+    <div className="chatroom-form-container">
+      <form
+        className="chatroom-form"
+        autoComplete="off"
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        ref={form}
+      >
+        <input
+          type="text"
+          name="text"
+          id="text"
+          ref={input}
+          placeholder="Type a message..."
+          className="chatroom-form__input"
+        />
+        <button type="submit" className="btn-send">
+          send
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -27,8 +27,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  background-color: rgba(238, 242, 243, 0);
-  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#38ef7d), to(#11998e), color-stop(0.6, #54de5d)); }
+  background-color: #11998e; }
 
 .landing-page {
   height: 100vh;
@@ -48,7 +47,7 @@ body {
     margin-top: 2.5rem;
     font-size: 3.5rem;
     text-align: center;
-    animation: jackInTheBox 1s ease-in; }
+    animation: fadeInDown 0.7s ease-in; }
 
 .hero {
   position: absolute;
@@ -61,10 +60,9 @@ body {
   .landing-page {
     background-position-y: -10rem; }
   .hero {
-    top: 65%;
-    padding-bottom: 2rem; }
+    top: 75%; }
   .landing-page__illustration {
-    display: none; } }
+    opacity: 0; } }
 
 .btn {
   padding: 1rem 3rem;
@@ -107,7 +105,8 @@ body {
   .btn-block {
     display: block;
     width: 100%;
-    border-radius: 20px; }
+    border-radius: 20px;
+    animation: fadeInRight 1s; }
   .btn-action {
     cursor: pointer;
     width: 100%;
@@ -153,7 +152,8 @@ body {
     font-size: 1.6rem;
     min-width: 4rem;
     text-transform: uppercase;
-    font-weight: bold; }
+    font-weight: bold;
+    animation: slideInRight 0.8s; }
 
 .choice {
   font-family: "Lobster", "Nunito", sans-serif;
@@ -220,32 +220,48 @@ body {
     top: 10%;
     left: 0%;
     background-color: #38ef7d;
-    opacity: 0.4; }
+    opacity: 0.4;
+    animation: slideInLeft 1s;
+    animation-fill-mode: both;
+    animation-delay: 3s; }
   .sign .circle-2 {
     position: absolute;
     top: 60%;
     right: -15%;
     padding: 5rem;
     background: #38ef7d;
-    opacity: 0.4; }
+    opacity: 0.4;
+    animation: slideInRight 3s;
+    animation-delay: 1.5s;
+    animation-fill-mode: both; }
   .sign .circle-3 {
     position: absolute;
     top: 0%;
     right: 1%;
     padding: 5rem;
     background: #38ef7d;
-    opacity: 0.4; }
+    opacity: 0.4;
+    animation: slideInRight 2s;
+    animation-fill-mode: both;
+    animation-delay: 1s; }
   .sign hr {
     margin: 2rem;
-    color: #38ef7d; }
+    color: #38ef7d;
+    animation: slideInLeft 1s; }
+  .sign__loading {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem; }
 
 .field {
   margin-bottom: 2rem; }
   .field__label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
     display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem; }
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem; }
   .field__input {
     background-color: white;
     border: none;
@@ -253,7 +269,11 @@ body {
     padding: 1.5rem;
     display: block;
     width: 100%;
-    border-radius: 20px; }
+    border-radius: 20px;
+    animation: fadeIn 1s; }
+    .field__input::placeholder {
+      color: #1a2026;
+      opacity: 0.45; }
 
 .circle {
   border-radius: 50%;
@@ -266,7 +286,8 @@ body {
   border-radius: 2px;
   display: block;
   transition: 0.2s;
-  cursor: pointer; }
+  cursor: pointer;
+  animation: fadeInDown 1s; }
   .user:hover {
     background-color: rgba(17, 153, 142, 0.1); }
   .user__avatar {
@@ -284,11 +305,12 @@ body {
     font-weight: 700;
     font-size: 1.8rem; }
   .user__status {
-    font-family: "Lobster"; }
+    font-weight: bold;
+    text-align: right; }
     .user__status-online {
       color: #11998e; }
     .user__status-offline {
-      color: #f85c50; }
+      color: #8e9eab; }
   .user-active {
     background-color: rgba(17, 153, 142, 0.1);
     position: relative; }
@@ -320,7 +342,8 @@ body {
 
 .profile {
   padding: 1rem 0;
-  background-color: #d7e1e9; }
+  background-color: #d7e1e9;
+  animation: fadeInLeft 0.6s; }
   .profile__info {
     text-align: center;
     padding: 2rem 1rem;
@@ -333,7 +356,7 @@ body {
   .profile__username {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    font-family: "Lobster"; }
+    font-weight: bold; }
   .profile__email {
     font-size: 1.6rem;
     font-weight: 300; }
@@ -348,15 +371,18 @@ body {
   position: relative; }
   .chatroom-form {
     background-color: white;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
     width: 90%;
     display: flex;
     align-items: center;
     border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(26, 32, 38, 0.2); }
+    box-shadow: 0 1px 2px rgba(26, 32, 38, 0.2);
+    animation: fadeInUp 1s; }
+    .chatroom-form-container {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%; }
     .chatroom-form__input {
       background-color: none;
       border: none;
@@ -391,7 +417,8 @@ body {
   border-radius: 5rem;
   padding: 1rem 2rem;
   margin: 2rem;
-  width: auto; }
+  width: auto;
+  animation: slideInRight 0.7s; }
   .message__text {
     font-size: 1.7rem; }
   .message__date {
@@ -400,11 +427,12 @@ body {
     margin-left: auto;
     background-color: #11998e;
     color: #eef2f3; }
-    .message-own__date {
+    .message-own .message__date {
       color: rgba(238, 242, 243, 0.7); }
 
 .messages {
   height: 80%;
+  overflow-x: hidden;
   overflow-y: scroll;
   padding: 3rem 0; }
 
