@@ -72,6 +72,11 @@ body {
     height: 100%;
     width: auto; } }
 
+@media only screen and (max-width: 500px) {
+  .landing-page .shot {
+    bottom: 2rem;
+    right: 2rem; } }
+
 .btn {
   padding: 1rem 3rem;
   font-size: 1.7rem;
