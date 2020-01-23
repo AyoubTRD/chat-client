@@ -1,6 +1,5 @@
 .btn {
   padding: 1rem 3rem;
-  border: 2px solid;
   font-size: 1.7rem;
   font-weight: bold;
   border-radius: 4px;
@@ -9,30 +8,21 @@
   transition: 0.4s;
   margin-right: 1rem;
   &-white {
-    border-color: 2px solid $white;
     color: $white;
+    background-color: $light-green;
+    padding: 1.2rem 3.6rem;
+    border-radius: 25px;
     &:hover {
-      color: $black;
-      background-color: $white;
-      border-color: $black;
-    }
-  }
-  &-grey {
-    border-color: 2px solid $grey;
-    color: $grey;
-    &:hover {
-      color: $black;
-      background-color: $grey;
-      border-color: $black;
+      background-color: darken($light-green, 10%);
     }
   }
   &-black {
-    border-color: $black;
-    color: $black;
+    color: $white;
+    background-color: $dark-green;
+    padding: 1.2rem 3.6rem;
+    border-radius: 25px;
     &:hover {
-      color: $white;
-      background-color: $black;
-      border-color: $white;
+      background-color: darken($dark-green, 5%);
     }
   }
   &-green {
@@ -73,7 +63,7 @@
       content: "";
       position: absolute;
       bottom: -100%;
-      left: 0;
+      left: 4px;
       height: 100%;
       width: 4px;
       transition: 0.2s ease-in-out;

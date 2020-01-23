@@ -11,7 +11,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  color: #1a2026;
+  color: #222222;
   overflow-x: hidden;
   width: 100vw; }
 
@@ -27,46 +27,53 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  background-color: #11998e; }
+  background-color: #8f274c; }
 
 .landing-page {
   height: 100vh;
   width: 100vw;
   position: relative;
   overflow-x: hidden;
-  background: url("./assets/bg.svg");
-  background-position-y: top;
-  background-position-x: right; }
-  .landing-page__illustration {
-    width: 100%;
-    max-width: 80vh;
-    display: block;
-    margin: 0 auto; }
+  color: white; }
   .landing-page__heading {
-    color: #1a2026;
-    margin-top: 2.5rem;
-    font-size: 3.5rem;
-    text-align: center;
-    animation: fadeInDown 0.7s ease-in; }
+    margin: 2.5rem 4rem;
+    font-size: 4rem;
+    text-align: right;
+    animation: fadeInDown 0.7s ease-in;
+    color: #f8a158; }
+  .landing-page video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: -1; }
+  .landing-page .big {
+    color: white;
+    max-width: 700px;
+    margin-bottom: 6rem; }
+  .landing-page .shot {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.6rem; }
+    .landing-page .shot a {
+      color: #f8a158; }
 
 .hero {
   position: absolute;
   width: 90%;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
 
-@media only screen and (max-width: 768px) {
-  .landing-page {
-    background-position-y: -10rem; }
-  .hero {
-    top: 75%; }
-  .landing-page__illustration {
-    opacity: 0; } }
+@media only screen and (max-width: 1100px) {
+  .landing-page video {
+    height: 100%;
+    width: auto; } }
 
 .btn {
   padding: 1rem 3rem;
-  border: 2px solid;
   font-size: 1.7rem;
   font-weight: bold;
   border-radius: 4px;
@@ -75,28 +82,21 @@ body {
   transition: 0.4s;
   margin-right: 1rem; }
   .btn-white {
-    border-color: 2px solid #eef2f3;
-    color: #eef2f3; }
+    color: #eef2f3;
+    background-color: #f8a158;
+    padding: 1.2rem 3.6rem;
+    border-radius: 25px; }
     .btn-white:hover {
-      color: #1a2026;
-      background-color: #eef2f3;
-      border-color: #1a2026; }
-  .btn-grey {
-    border-color: 2px solid #8e9eab;
-    color: #8e9eab; }
-    .btn-grey:hover {
-      color: #1a2026;
-      background-color: #8e9eab;
-      border-color: #1a2026; }
+      background-color: #f68527; }
   .btn-black {
-    border-color: #1a2026;
-    color: #1a2026; }
+    color: #eef2f3;
+    background-color: #8f274c;
+    padding: 1.2rem 3.6rem;
+    border-radius: 25px; }
     .btn-black:hover {
-      color: #eef2f3;
-      background-color: #1a2026;
-      border-color: #eef2f3; }
+      background-color: #7b2241; }
   .btn-green {
-    background: linear-gradient(to right, #38ef7d, #11998e, #38ef7d);
+    background: linear-gradient(to right, #f8a158, #8f274c, #f8a158);
     background-size: 200%;
     border: none;
     color: #eef2f3; }
@@ -124,23 +124,23 @@ body {
       content: "";
       position: absolute;
       bottom: -100%;
-      left: 0;
+      left: 4px;
       height: 100%;
       width: 4px;
       transition: 0.2s ease-in-out;
-      background-color: #11998e; }
+      background-color: #8f274c; }
     .btn-action:hover::after {
       bottom: 0; }
     .btn-action-active::after {
       bottom: 0; }
     .btn-action-active {
-      color: #11998e;
-      background-color: rgba(17, 153, 142, 0.03); }
+      color: #8f274c;
+      background-color: rgba(143, 39, 76, 0.03); }
     .btn-action:hover {
-      color: #11998e;
-      background-color: rgba(17, 153, 142, 0.03); }
+      color: #8f274c;
+      background-color: rgba(143, 39, 76, 0.03); }
   .btn-send {
-    background: linear-gradient(to right, #38ef7d, #11998e, #38ef7d);
+    background: linear-gradient(to right, #f8a158, #8f274c, #f8a158);
     background-size: 200%;
     border: none;
     color: #eef2f3;
@@ -159,10 +159,10 @@ body {
   font-family: "Lobster", "Nunito", sans-serif;
   font-size: 1.8rem; }
   .choice__link {
-    color: #11998e;
+    color: #8f274c;
     transition: 0.2s; }
     .choice__link:hover {
-      color: #38ef7d; }
+      color: #f8a158; }
 
 .requirements {
   font-size: 1.6rem;
@@ -180,7 +180,7 @@ body {
   font-weight: 700;
   line-height: 0.9;
   text-transform: uppercase;
-  color: #1a2026;
+  color: #222222;
   margin-bottom: 3rem; }
 
 @media only screen and (max-width: 600px) {
@@ -190,7 +190,7 @@ body {
 .form-page {
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(to right top, #11998e, #38ef7d);
+  background: linear-gradient(to right top, #8f274c, #f8a158);
   position: relative; }
 
 .center {
@@ -203,7 +203,7 @@ body {
   width: 40rem;
   max-width: 100%;
   background-color: #eef2f3;
-  box-shadow: 0 0 1rem 0.5rem rgba(26, 32, 38, 0.6);
+  box-shadow: 0 0 1rem 0.5rem rgba(34, 34, 34, 0.6);
   min-height: 10rem;
   border-radius: 1rem;
   position: relative;
@@ -213,13 +213,13 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 4rem;
-    color: #1a2026; }
+    color: #222222; }
   .sign .circle-1 {
     padding: 2.5rem;
     position: absolute;
     top: 10%;
     left: 0%;
-    background-color: #38ef7d;
+    background-color: #f8a158;
     opacity: 0.4;
     animation: slideInLeft 1s;
     animation-fill-mode: both;
@@ -229,7 +229,7 @@ body {
     top: 60%;
     right: -15%;
     padding: 5rem;
-    background: #38ef7d;
+    background: #f8a158;
     opacity: 0.4;
     animation: slideInRight 3s;
     animation-delay: 1.5s;
@@ -239,14 +239,14 @@ body {
     top: 0%;
     right: 1%;
     padding: 5rem;
-    background: #38ef7d;
+    background: #f8a158;
     opacity: 0.4;
     animation: slideInRight 2s;
     animation-fill-mode: both;
     animation-delay: 1s; }
   .sign hr {
     margin: 2rem;
-    color: #38ef7d;
+    color: #f8a158;
     animation: slideInLeft 1s; }
   .sign__loading {
     display: block;
@@ -272,7 +272,7 @@ body {
     border-radius: 20px;
     animation: fadeIn 1s; }
     .field__input::placeholder {
-      color: #1a2026;
+      color: #222222;
       opacity: 0.45; }
 
 .circle {
@@ -289,7 +289,7 @@ body {
   cursor: pointer;
   animation: fadeInDown 1s; }
   .user:hover {
-    background-color: rgba(17, 153, 142, 0.1); }
+    background-color: rgba(143, 39, 76, 0.1); }
   .user__avatar {
     max-width: 100%;
     height: 5rem;
@@ -301,18 +301,18 @@ body {
     padding-left: 2rem;
     padding-top: 5px; }
   .user__username {
-    color: #1a2026;
+    color: #222222;
     font-weight: 700;
     font-size: 1.8rem; }
   .user__status {
     font-weight: bold;
     text-align: right; }
     .user__status-online {
-      color: #11998e; }
+      color: #8f274c; }
     .user__status-offline {
       color: #8e9eab; }
   .user-active {
-    background-color: rgba(17, 153, 142, 0.1);
+    background-color: rgba(143, 39, 76, 0.1);
     position: relative; }
     .user-active::after {
       content: "";
@@ -320,7 +320,7 @@ body {
       right: 0;
       top: 50%;
       transform: translate(100%, -50%);
-      background-color: rgba(17, 153, 142, 0.1);
+      background-color: rgba(143, 39, 76, 0.1);
       width: 2rem;
       height: 3rem;
       clip-path: polygon(0 0, 100% 50%, 0 100%); }
@@ -338,11 +338,11 @@ body {
 .chat-page {
   width: 100vw;
   min-height: 100vh;
-  background-color: #f2f8fd; }
+  background-color: rgba(143, 39, 76, 0.05); }
 
 .profile {
   padding: 1rem 0;
-  background-color: #d7e1e9;
+  background-color: rgba(143, 39, 76, 0.13);
   animation: fadeInLeft 0.6s; }
   .profile__info {
     text-align: center;
@@ -375,7 +375,7 @@ body {
     display: flex;
     align-items: center;
     border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(26, 32, 38, 0.2);
+    box-shadow: 0 1px 2px rgba(34, 34, 34, 0.2);
     animation: fadeInUp 1s; }
     .chatroom-form-container {
       position: absolute;
@@ -409,11 +409,11 @@ body {
         transform: translate(200%, -50%);
         padding: 5px;
         border-radius: 50%;
-        background-color: #2eb32e; }
+        background-color: #8f274c; }
 
 .message {
   max-width: 80%;
-  background-color: #d7e1e9;
+  background: linear-gradient(to right top, rgba(143, 39, 76, 0.1), rgba(248, 161, 88, 0.3));
   border-radius: 5rem;
   padding: 1rem 2rem;
   margin: 2rem;
@@ -425,7 +425,7 @@ body {
     color: #8e9eab; }
   .message-own {
     margin-left: auto;
-    background-color: #11998e;
+    background: linear-gradient(to right top, #8f274c, #f8a158);
     color: #eef2f3; }
     .message-own .message__date {
       color: rgba(238, 242, 243, 0.7); }

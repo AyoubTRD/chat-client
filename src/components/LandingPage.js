@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import illustration from "../assets/illustration.png";
+import bgVid from "../assets/bg.mp4";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -8,13 +8,14 @@ const LandingPage = () => {
   }, []);
   return (
     <div className="landing-page">
+      <video src={bgVid} loop autoPlay></video>
+      <p className="shot">Video made by <a href="https://dribbble.com/zakeklund" target="blank">Zak Steele-Eklund</a>
+</p>
       <div className="my-container">
         <nav className="landing-page__navbar">
           <h1 className="landing-page__heading">Chat APP</h1>
         </nav>
         <div className="hero">
-          <div className="row">
-            <div className="col-md-8 col-sm-8">
               <h2 className="big">
                 Start chatting with your friends right now
               </h2>
@@ -24,15 +25,7 @@ const LandingPage = () => {
               <Link to="/signin" className="btn btn-black">
                 Login
               </Link>
-            </div>
-            <div className="col-md-4 col-sm-4">
-              <img
-                src={illustration}
-                alt="laptop illustration"
-                className="landing-page__illustration"
-              />
-            </div>
-          </div>
+            
         </div>
       </div>
     </div>
