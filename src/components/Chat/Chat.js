@@ -21,6 +21,7 @@ const Chat = ({ users, user }) => {
       history.push("/");
     }
     document.title = "Start Chatting with your friends";
+    document.body.style.background = "#ffffff";
   }, [users, user]);
 
   const usersArr = fromObjToArr(users);

@@ -15,6 +15,8 @@ const SignIn = ({ signIn, user }) => {
       history.push("/chat");
     }
     document.title = "Chat App - Login";
+    document.body.style.background = "#ffffff";
+
   }, [user.token]);
 
   const [email, setEmail] = useState("");
