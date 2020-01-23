@@ -29,6 +29,37 @@ body {
   border-radius: 7px;
   background-color: #8f274c; }
 
+.slide-enter,
+.slide-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.slide-exit {
+  opacity: 1;
+  transform: translateY(0);
+  height: 100vh;
+  overflow: hidden; }
+
+.slide-exit.slide-exit-active {
+  transition: all 0.4s ease-in-out;
+  opacity: 0.5;
+  transform: translateY(-100%); }
+
+.slide-enter {
+  transform: translateX(100%);
+  opacity: 0.5; }
+
+.slide-enter.slide-enter-active {
+  transition: all 0.4s 0.4s ease-in-out;
+  transform: translateX(0);
+  opacity: 1; }
+
+.slide-enter-done {
+  position: static; }
+
 .landing-page {
   height: 100vh;
   width: 100vw;

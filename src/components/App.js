@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import ReactNotification from "react-notifications-component";
 
 import history from "../history";
-import { Router, Switch, Route } from "react-router-dom";
+import { Router } from "react-router-dom";
+import AnimatedSwitch from "./AnimatedSwitch"
+import AnimatedRoute from "./AnimatedRoute"
 import { signIn } from "../actions/user";
 import { connect } from "react-redux";
 import connectToSocket from "../socket";
@@ -27,23 +29,23 @@ const App = ({ signIn }) => {
   return (
     <Router history={history}>
       <ReactNotification />
-      <Switch>
-        <Route path="/" exact>
+      <AnimatedSwitch animationClassName="slide" animationTimeout={800}>
+        <AnimatedRoute path="/" exact>
           <LandingPage />
-        </Route>
+        </AnimatedRoute>
 
-        <Route path="/signup" exact>
+        <AnimatedRoute path="/signup" exact>
           <SignUp />
-        </Route>
+        </AnimatedRoute>
 
-        <Route path="/signin" exact>
+        <AnimatedRoute path="/signin" exact>
           <SignIn />
-        </Route>
+        </AnimatedRoute>
 
-        <Route path="/chat" exact>
+        <AnimatedRoute path="/chat" exact>
           <Chat />
-        </Route>
-      </Switch>
+        </AnimatedRoute>
+      </AnimatedSwitch>
     </Router>
   );
 };
