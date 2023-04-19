@@ -16,7 +16,7 @@ export let socket;
 
 const connectToSocket = token => {
   const { dispatch } = store;
-  socket = io("https://trd-chat.herokuapp.com/", {
+  socket = io("https://chat-api.ayoubtrd.com/", {
     query: `token=${token}`
   });
   socket.on("ready", () => {
